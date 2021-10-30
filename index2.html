@@ -14,7 +14,7 @@
     <style>
       #mapid {
         height: 400px;
-        width: 800px;
+        width: 100%;
       }
     </style>
   </head>
@@ -37,7 +37,7 @@
 
       console.log(data);
       console.log(data[0]);
-      var map = L.map("mapid").setView([data[0], data[1]], 13);
+      var map = L.map("mapid").setView([data[0], data[1]], 25);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
@@ -46,10 +46,10 @@
 
       L.marker([data[0], data[1]])
         .addTo(map)
-        .bindPopup("You are here.")
+        // .bindPopup("You are here.")
         .openPopup();
     }
 
-    getData();
+    setInterval(getData(), 2000);
   </script>
 </html>
